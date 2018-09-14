@@ -1,0 +1,33 @@
+{
+  "name": "azuki",
+  "version": "1.0.0",
+  "description": "A string template engine for NodeJs, treating everything as pure strings thus templates are included but not limited to HTML!",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "4.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momocow/node-azuki.git"
+  },
+  "keywords": [
+    "string",
+    "template",
+    "string-template",
+    "template-engine"
+  ],
+  "author": "MomoCow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/momocow/node-azuki/issues"
+  },
+  "homepage": "https://github.com/momocow/node-azuki#readme",
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "typescript": "^3.0.3"
+  }
+}
