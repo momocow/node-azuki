@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava ./test/*.test.js"
   },
   "engines": {
-    "node": "4.2.4"
+    "node": ">=7.0.0"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,16 @@
   "homepage": "https://github.com/momocow/node-azuki#readme",
   "devDependencies": {
     "@types/node": "^10.9.4",
+    "ava": "^0.25.0",
     "typescript": "^3.0.3"
-  }
+  },
+  "ava": {
+		"compileEnhancements": false,
+		"extensions": [
+			"ts"
+		],
+		"require": [
+			"ts-node/register"
+		]
+	}
 }
