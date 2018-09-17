@@ -1,11 +1,11 @@
 import { Evaluator } from './Evaluator'
 import { RunningScriptOptions } from 'vm'
-import { throws } from 'assert';
 
-interface ParserOptions {
+export interface ParserOptions {
   startingBrace?: string
   endingBrace?: string
-  throws?: boolean
+  throws?: boolean,
+  defaultReplacement?: string
 }
 
 export class AzukiParser {
@@ -16,7 +16,15 @@ export class AzukiParser {
     throws: false
   }
 
-  constructor (dict: {[key: string]: string}, options?: ParserOptions) {
+  get startingBrace () {
+    return this._options.startingBrace
+  }
+
+  get endingBrace () {
+    return this._options.endingBrace
+  }
+
+  constructor (dict?: {[key: string]: string}, options?: ParserOptions) {
     this.dict = dict || {}
     Object.assign(this._options, options)
   }
@@ -42,7 +50,13 @@ export class AzukiParser {
       columnOffset = undefined
     } = options || {}
 
-    const { startingBrace, endingBrace, throws } = this._options
+    const {
+      startingBrace,
+      endingBrace,
+      throws,
+      defaultReplacement
+    } = this._options
+
     const evaluator = new Evaluator(this.dict, filename)
 
     do {
@@ -53,7 +67,7 @@ export class AzukiParser {
       if (exprStart < 0) break
 
       const expr = template.substring(exprStart, exprEnd)
-      let result = ''
+      let result = defaultReplacement
       try {
         result = `${evaluator.evaluate(expr, lineOffset, columnOffset)}`
       } catch (e) {
