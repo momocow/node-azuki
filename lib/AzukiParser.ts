@@ -13,7 +13,8 @@ export class AzukiParser {
   private readonly _options: ParserOptions = {
     startingBrace: '{%',
     endingBrace: '%}',
-    throws: false
+    throws: false,
+    defaultReplacement: ''
   }
 
   get startingBrace () {

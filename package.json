@@ -1,6 +1,6 @@
 {
   "name": "azuki",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A string template engine for NodeJs, treating everything as pure strings thus templates are included but not limited to HTML!",
   "main": "index.js",
   "scripts": {

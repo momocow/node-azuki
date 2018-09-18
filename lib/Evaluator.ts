@@ -14,6 +14,6 @@ export class Evaluator {
       lineOffset,
       columnOffset,
       displayErrors: false
-    }) || undefined
+    })
   }
 }
