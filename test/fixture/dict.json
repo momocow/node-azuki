@@ -1,6 +1,7 @@
 {
-  "this": "THIS",
-  "is": "IS",
-  "a": "A",
-  "test": "TEST"
+  "This": "這",
+  "is": "是",
+  "a": "一個",
+  "test": "測試",
+  "keyTest": "test"
 }
