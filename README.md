@@ -9,7 +9,56 @@ A string template engine for NodeJs, treating everything as pure strings thus te
 
 > [NodeJs VM](https://nodejs.org/api/vm.html) is used to evaluate expressions in templates; therefore, it currently has no browser support!
 
+## Example
+javascript
+```js
+const { Azuki, parseFile } = require('azuki')
+// dictionary
+const dict = {
+  test: 't_e_s_t',
+  nested: 'test',
+  // other js variables are allowed
+  num: 1
+}
+
+const parser = new Azuki(dict)
+
+// Using Nodejs Stream API
+fs.createReadStream('/path/to/template')
+  .pipe(parser)
+  .pipe(fs.createWriteStream('/path/to/output'))
+
+// Or using `parseFile` utility function
+parseFile('/path/to/template', dict)
+  .then(function (result) {
+    console.log(result)
+    // "This is a t_e_s_t!\nNested case: "t_e_s_t"\nConditional case: 1"
+  })
+
+parseFile('/path/to/template', '/path/to/output', dict)
+  .then(function () {
+    console.log(fs.readFileSync('/path/to/output', 'utf8'))
+    // "This is a t_e_s_t!\nNested case: "t_e_s_t"\nConditional case: 1"
+  })
+```
+
+template
+```
+This is a {% test %}!
+Nested case: "{% {% nested %} %}"
+Conditional case: {% num === 1 ? '1' : '2' %}
+```
+
+output
+```
+This is a t_e_s_t!
+Nested case: "t_e_s_t"
+Conditional case: 1
+```
+
 ## API
+> WIP
+
 ```ts
 import {
   Azuki,
