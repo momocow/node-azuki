@@ -9,7 +9,7 @@ export interface ParserOptions {
 }
 
 export class AzukiParser {
-  private dict: {[key: string]: string} = {}
+  private dict: Record<string, string> = {}
   private readonly _options: ParserOptions = {
     startingBrace: '{%',
     endingBrace: '%}',
@@ -24,12 +24,12 @@ export class AzukiParser {
     return this._options.endingBrace
   }
 
-  constructor (dict?: {[key: string]: string}, options?: ParserOptions) {
+  constructor (dict?: Record<string, string>, options?: ParserOptions) {
     this.dict = dict || {}
     Object.assign(this._options, options)
   }
 
-  load (dict: {[key: string]: string}, overwrite: boolean = true): this {
+  load (dict: Record<string, string>, overwrite: boolean = true): this {
     for (const [ key, value ] of Object.entries(dict)) {
       this.set(key, value, overwrite)
     }

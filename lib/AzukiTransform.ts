@@ -26,7 +26,7 @@ export class AzukiTransform extends Transform {
   private _buf: string = ''
 
   constructor (
-    dict: {[key: string]: string} = {},
+    dict: Record<string, string> = {},
     parserOptions?: ParserOptions,
     transformOptions?: AzukiTransformOptions
   ) {
