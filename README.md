@@ -56,6 +56,15 @@ Nested case: "t_e_s_t"
 Conditional case: 1
 ```
 
+## Caveat
+Avoid using preserved words as dictionary keys. Preserved words are e.g. built-in objects and functions any [standard global object](https://es5.github.io/#x15.1) has. Also see [vm.createContext()](https://nodejs.org/api/vm.html#vm_vm_createcontext_sandbox_options) in the Nodejs official document.
+- `JSON`
+- `this`
+- `console`
+- `toString`
+
+(Which also means that you can utilize such functions like `JSON.parse` and `JSON.stringify` in the template.)
+
 ## API
 > WIP
 
