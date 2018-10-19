@@ -1,11 +1,13 @@
 # node-azuki
+
+<img src="./assets/logo.svg" width="240" />
+
 A string template engine for NodeJs, treating everything as pure strings thus templates are included but not limited to HTML!
 
 [![Build Status](https://travis-ci.org/momocow/node-azuki.svg?branch=master)](https://travis-ci.org/momocow/node-azuki)
 [![Coverage Status](https://coveralls.io/repos/github/momocow/node-azuki/badge.svg?branch=master)](https://coveralls.io/github/momocow/node-azuki?branch=master)
 [![npm](https://img.shields.io/npm/v/azuki.svg)](https://www.npmjs.com/package/azuki)
 [![GitHub](https://img.shields.io/github/license/momocow/node-azuki.svg)](https://github.com/momocow/node-azuki)
-
 
 > [NodeJs VM](https://nodejs.org/api/vm.html) is used to evaluate expressions in templates; therefore, it currently has no browser support!
 
@@ -116,3 +118,5 @@ interface ParserOptions {
   defaultReplacement?: string
 }
 ```
+## Acknowledgement
+It was a good experience sharing stories with another fan of azuki. No one will expect that it was because we both wanted the domain "azuki" on the npm registry. He was to make sure that if I was attached to the name or not, and obviously I kept owning the domain after the conversation. I sincerely wish he can find another ideal name for his work and appreciate a lot that he made the project Node-Azuki a nice and meaningful logo.
